@@ -1,1 +1,11 @@
-
+'Objects for retrieving the information
+Dim psBattery As PowerStatus = SystemInformation.PowerStatus
+Dim perFull As Single = psBattery.BatteryLifePercent
+'Show the remaining battery power in percentages
+MsgBox("Total battery power remaining: " & perFull * 100 & "%")
+'Is the battery charging?
+If psBattery.PowerLineStatus = PowerLineStatus.Online Then
+    MsgBox("Battery charge status: Charging")
+ElseIf psBattery.PowerLineStatus = PowerLineStatus.Offline Then
+    MsgBox("Battery charge status: Not charging")
+End If
